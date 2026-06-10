@@ -1,0 +1,175 @@
+:root {
+  --truexxii-parchment: #E8DCC2;
+  --truexxii-forest: #2F4F2F;
+  --truexxii-olive: #5A7C3E;
+  --truexxii-earth: #8B7355;
+  --truexxii-cocoa: #4B3A2F;
+  --truexxii-charcoal: #3A3A3A;
+  --truexxii-paper-shadow: #C9BBA4;
+  --background: var(--truexxii-parchment);
+  --foreground: var(--truexxii-forest);
+  --surface: rgba(232, 220, 194, 0.95);
+  --surface-strong: rgba(232, 220, 194, 1);
+  --text-muted: #5A7C3E;
+  --border: var(--truexxii-charcoal);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.65;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(0, 0, 0, 0.03) 0, transparent 12%),
+    radial-gradient(circle at 90% 20%, rgba(0, 0, 0, 0.02) 0, transparent 14%),
+    linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 20%, transparent 80%, rgba(255,255,255,0.06) 100%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px);
+  background-size: auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 15% 15%, rgba(58, 58, 58, 0.02), transparent 12%),
+    radial-gradient(circle at 85% 85%, rgba(58, 58, 58, 0.015), transparent 10%);
+  opacity: 0.85;
+}
+
+main {
+  position: relative;
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  width: 7.5rem;
+  height: 7.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='44' stroke='%233A3A3A' fill='none' stroke-width='4' opacity='0.22'/%3E%3Cline x1='60' y1='12' x2='60' y2='108' stroke='%233A3A3A' stroke-width='3' opacity='0.22'/%3E%3Cline x1='12' y1='60' x2='108' y2='60' stroke='%233A3A3A' stroke-width='3' opacity='0.22'/%3E%3Cpath d='M60 16 L72 60 L60 104 L48 60 Z' fill='%233A3A3A' opacity='0.18'/%3E%3Cpath d='M60 16 L68 60 L60 104 L52 60 Z' fill='%23E8DCC2' opacity='0.55'/%3E%3Ctext x='60' y='28' font-size='14' text-anchor='middle' fill='%233A3A3A' opacity='0.24' font-family='Georgia,serif'%3E22%3C/text%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.24;
+  pointer-events: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--truexxii-forest);
+}
+
+a {
+  color: var(--truexxii-olive);
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(90, 124, 62, 0.25);
+}
+
+.journal-shell,
+.guide-shell {
+  position: relative;
+  background: linear-gradient(180deg, rgba(232, 220, 194, 0.98), rgba(221, 206, 186, 0.98));
+  border: 1px solid rgba(58, 58, 58, 0.24);
+  border-radius: 2rem;
+  box-shadow: 10px 14px 0 rgba(201, 187, 164, 0.35);
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(58, 58, 58, 0.025), transparent 15%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 24%);
+  overflow: hidden;
+}
+
+.journal-shell::before,
+.guide-shell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 1rem;
+  background: rgba(75, 58, 47, 0.08);
+  transform: skewY(-2deg);
+}
+
+.journal-shell::after,
+.guide-shell::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  width: calc(100% - 2rem);
+  height: 5rem;
+  background: radial-gradient(circle at 50% 0, rgba(58, 58, 58, 0.08), transparent 55%);
+  pointer-events: none;
+}
+
+.note-card {
+  background: rgba(232, 220, 194, 0.92);
+  border: 1px solid rgba(58, 58, 58, 0.18);
+  border-radius: 1.75rem;
+  box-shadow: 4px 8px 0 rgba(201, 187, 164, 0.25);
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 24%),
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0, rgba(0, 0, 0, 0.02) 1px, transparent 1px, transparent 12px);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-1px);
+}
+
+.journal-heading {
+  color: var(--truexxii-cocoa);
+}
+
+.journal-label {
+  color: var(--truexxii-earth);
+}
+
+.leather-tab {
+  position: absolute;
+  top: -1rem;
+  left: 2rem;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.25rem;
+  border-radius: 1.5rem 1.5rem 0.9rem 0.9rem;
+  background: linear-gradient(180deg, #4B3A2F 0%, #3A2D24 100%);
+  color: var(--truexxii-parchment);
+  border: 1px solid rgba(58, 58, 58, 0.28);
+  box-shadow: 0 5px 0 rgba(58, 38, 25, 0.2);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.leather-tab::before {
+  content: "";
+  position: absolute;
+  bottom: -0.35rem;
+  left: 1rem;
+  width: calc(100% - 2rem);
+  height: 0.35rem;
+  background: radial-gradient(circle, rgba(232, 220, 194, 0.35), transparent 70%);
+}
+
+.app-footer {
+  box-shadow: inset 0 1px 0 rgba(58, 58, 58, 0.08);
+}
