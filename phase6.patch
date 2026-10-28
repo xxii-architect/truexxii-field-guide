@@ -1,0 +1,63 @@
+--- a/wilderness_app_roadmap.md
++++ b/wilderness_app_roadmap.md
+@@ -172,6 +172,45 @@
+ Field missions
+ 
+ Wilderness challenges
++
++Phase 6 — Agent Branch Push + PR Creation
++Goal: let the MammothOS agent carry an approved change from proposal to a reviewable pull request, without giving up human control at any gate.
++
++6.1 Scope
++Agent creates a new local branch per change; never commits to the selected checkout's current branch.
++
++Agent produces one commit per approved change with a descriptive message and the change ID.
++
++Agent pushes that branch to the remote under the mammoth/ namespace.
++
++Agent opens a pull request against the default branch with a summary, the diff, and validation evidence attached.
++
++6.2 Approval gates (all four required, in order)
++Gate 1 — Proposal: patch is reviewable; nothing is written to disk.
++
++Gate 2 — Validation run: explicit approval releases isolated Docker baseline-vs-candidate tests; no host execution.
++
++Gate 3 — Application: separate explicit approval commits the validated change to a new local branch. Never auto-merge.
++
++Gate 4 — Push + PR: separate explicit approval pushes the branch and opens the PR. Merge stays a human action in GitHub.
++
++6.3 Hard limits
++No automatic merge to main or any protected branch.
++
++No force-push, no branch-history rewrite, no deletion of remote branches.
++
++No deployment or production promotion triggered by the agent.
++
++Agent stops and reports once the PR is open; the next action is a human review.
++
++6.4 Evidence to attach to every PR
++Base SHA and resulting commit SHA.
++
++Validation profile used, with pass/fail summary for baseline and candidate.
++
++Explicit note that test profiles do not cover UI builds or CI workflow changes.
++
++Explicit statement of what was not verified.
+ 
+ 8. FILE PURPOSE
+ This roadmap file is intended for:
+@@ -207,6 +246,7 @@
+ #phase:content_engine
+ #phase:offline_mode
+ #phase:ecosystem
++#phase:agent_automation
+ 10. NEXT STEPS
+ Create a file in your repo root:
+ 
+@@ -236,4 +276,4 @@
+ 
+ wilderness_app_feature_spec.md
+ 
+-wilderness_app_directory_structure.md
+\ No newline at end of file
++wilderness_app_directory_structure.md
